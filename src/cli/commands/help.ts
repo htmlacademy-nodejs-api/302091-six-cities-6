@@ -2,12 +2,12 @@ import chalk from 'chalk';
 import { Command } from './interface.js';
 
 export class HelpCommand implements Command {
-    getName(): string {
-        return '--help';
-    }
+  getName(): string {
+    return '--help';
+  }
 
-    execute(): void {
-        console.info(`
+  execute(): void {
+    console.info(`
             ${chalk.blue('Программа для подготовки данных для REST API сервера.')}
             ${chalk.blue('Пример:')}
             \t${chalk.green('cli.js --<command> [--arguments]')}
@@ -15,6 +15,6 @@ export class HelpCommand implements Command {
             \t${chalk.green('--version:                   # выводит номер версии')}
             \t${chalk.green('--help:                      # печатает этот текст')}
             \t${chalk.green('--import <path>:             # импортирует данные из TSV')}
-        `)
-    }
-};
+        `);
+  }
+}

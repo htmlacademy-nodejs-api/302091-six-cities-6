@@ -9,35 +9,35 @@ type PackageJson = {
 };
 
 function isPackageJson(data: unknown): data is PackageJson {
-    return (
-        typeof data === 'object' &&
+  return (
+    typeof data === 'object' &&
         !Array.isArray(data) &&
         data !== null &&
         Object.hasOwn(data, 'version')
-    );
+  );
 }
 
 export class VersionCommand implements Command {
-    getName(): string {
-        return '--version';
-    }
+  getName(): string {
+    return '--version';
+  }
 
-    private readVersion(): string {
-        const file = fs.readFileSync(resolve('package.json'), 'utf-8');
-        const importedContent: unknown = JSON.parse(file);
+  private readVersion(): string {
+    const file = fs.readFileSync(resolve('package.json'), 'utf-8');
+    const importedContent: unknown = JSON.parse(file);
 
-        if (isPackageJson(importedContent)) {
-            return importedContent.version;
-        } else {
-            throw new Error('Package is absent or not valid');
-        }
+    if (isPackageJson(importedContent)) {
+      return importedContent.version;
+    } else {
+      throw new Error('Package is absent or not valid');
     }
+  }
 
-    execute(): void {
-        try {
-            console.log(chalk.blue(this.readVersion()));
-        } catch(e) {
-            console.log(chalk.red(`Error: ${e}`));
-        }
+  execute(): void {
+    try {
+      console.log(chalk.blue(this.readVersion()));
+    } catch(e) {
+      console.log(chalk.red(`Error: ${e}`));
     }
-};
+  }
+}

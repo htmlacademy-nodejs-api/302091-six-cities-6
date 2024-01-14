@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import {
-    CLIApplication,
-    HelpCommand,
-    VersionCommand,
-    ImportCommand
+  CLIApplication,
+  HelpCommand,
+  VersionCommand,
+  ImportCommand
 } from './cli/index.js';
 
 function bootstrap() {
@@ -16,6 +16,6 @@ function bootstrap() {
   ]);
 
   cliApplication.processCommand(process.argv);
-};
+}
 
 bootstrap();

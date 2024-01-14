@@ -1,7 +1,7 @@
 export enum UserTypes {
     ordinary = 'обычный',
     pro = 'pro',
-};
+}
 
 export enum City {
     Paris,
@@ -10,14 +10,14 @@ export enum City {
     Amsterdam,
     Hamburg,
     Dusseldorf,
-};
+}
 
 export enum HousingType {
     apartment,
     house,
     room,
     hotel,
-};
+}
 
 export enum Conveniences {
     Breakfast,
@@ -27,7 +27,7 @@ export enum Conveniences {
     Washer,
     Towels,
     Fridge,
-};
+}
 
 export type Author = {
     name: string;
