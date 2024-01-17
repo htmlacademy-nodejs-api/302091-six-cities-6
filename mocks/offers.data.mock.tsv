@@ -1,0 +1,6 @@
+name	description	date	city	previewImage	photos	isPremium	isFavorite	rating	housingType	roomsNumber	guestsNumber	cost	conveniences	author	coordinates	commentsNumber
+Regular room	noting special	2022-04-05T08:45:40.284Z	Brussels	regular-room.jpg	regular-1.jpg;regular-2.jpg	false	true	1	room	1	1	100	Air conditioning	Nobody;nobody@mail.ru;i-am.jpg;007;ordinary	50.85045000;4.34878000	3
+Regular room	noting special	2022-04-05T08:45:40.284Z	Brussels	regular-room.jpg	regular-1.jpg;regular-2.jpg	true	false	2	room	1	1	100	Air conditioning	Nobody;nobody@mail.ru;i-am.jpg;007;ordinary	50.85045000;4.34878000	3
+Regular room	noting special	2022-04-05T08:45:40.284Z	Brussels	regular-room.jpg	regular-1.jpg;regular-2.jpg	false	true	3	room	1	1	100	Air conditioning	Nobody;nobody@mail.ru;i-am.jpg;007;ordinary	50.85045000;4.34878000	3
+Regular room	noting special	2022-04-05T08:45:40.284Z	Brussels	regular-room.jpg	regular-1.jpg;regular-2.jpg	false	false	4	room	1	1	100	Air conditioning	Nobody;nobody@mail.ru;i-am.jpg;007;ordinary	50.85045000;4.34878000	3
+Regular room	noting special	2022-04-05T08:45:40.284Z	Brussels	regular-room.jpg	regular-1.jpg;regular-2.jpg	false	false	5	room	1	1	100	Air conditioning	Nobody;nobody@mail.ru;i-am.jpg;007;ordinary	50.85045000;4.34878000	3
