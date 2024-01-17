@@ -1,32 +1,32 @@
-export enum UserTypes {
-    ordinary = 'обычный',
-    pro = 'pro',
+export enum UserType {
+    Ordinary = 'Ordinary',
+    Pro = 'Pro',
 }
 
 export enum City {
-    Paris,
-    Cologne,
-    Brussels,
-    Amsterdam,
-    Hamburg,
-    Dusseldorf,
+    Paris = 'Paris',
+    Cologne = 'Cologne',
+    Brussels = 'Brussels',
+    Amsterdam = 'Amsterdam',
+    Hamburg = 'Hamburg',
+    Dusseldorf = 'Dusseldorf',
 }
 
 export enum HousingType {
-    apartment,
-    house,
-    room,
-    hotel,
+    Apartment = 'apartment',
+    House = 'house',
+    Room = 'room',
+    hotel = 'Hotel',
 }
 
-export enum Conveniences {
-    Breakfast,
-    'Air conditioning',
-    'Laptop friendly workspace',
-    'Baby seat',
-    Washer,
-    Towels,
-    Fridge,
+export enum Convenience {
+    Breakfast = 'Breakfast',
+    AirConditioning = 'Air conditioning',
+    LaptopFriendlyWorkspace = 'Laptop friendly workspace',
+    BabySeat = 'Baby seat',
+    Washer = 'Washer',
+    Towels = 'Towels',
+    Fridge = 'Fridge',
 }
 
 export type Author = {
@@ -34,10 +34,10 @@ export type Author = {
     email: string;
     avatar?: string;
     pass: string;
-    type: UserTypes;
+    type: UserType;
 };
 
-export type Coordinates = Record<'latitude' | 'longitude', number>;
+export type Location = Record<'latitude' | 'longitude', number>;
 
 export type RentalOffer = {
     name: string;
@@ -53,10 +53,10 @@ export type RentalOffer = {
     roomsNumber: number;
     guestsNumber: number;
     cost: number;
-    conveniences: Conveniences[];
+    conveniences: Convenience[];
     author: Author;
-    coordinates: Coordinates;
-    commentsNumber?: number;
+    coordinates: Location;
+    commentsNumber: number;
 };
 
 export type Comment = {

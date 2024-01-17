@@ -1,12 +1,12 @@
-import { Author, Coordinates, UserTypes } from '../../types/index.js';
+import { Author, Location, UserType } from '../../types/index.js';
 
 export function getAuthor(str = ''): Author {
   const [name, email, avatar, pass, type] = str.split(';').filter(Boolean);
 
-  return ({name, email, avatar, pass, type: type as UserTypes});
+  return ({name, email, avatar, pass, type: type as UserType});
 }
 
-export function getCoordinates(str = ''): Coordinates {
+export function getLocation(str = ''): Location {
   const [latitude, longitude] = str.split(';').filter(Boolean);
 
   return ({

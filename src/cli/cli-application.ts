@@ -11,12 +11,12 @@ export class CLIApplication {
   private readonly defaultCommand: string;
 
   registerCommands(commands: Command[]) {
-    commands.forEach((c) => {
-      if (this.commands[c.getName()]) {
-        throw new Error(`Command ${c.getName()} is already registered`);
+    commands.forEach((command) => {
+      if (this.commands[command.getName()]) {
+        throw new Error(`Command ${command.getName()} is already registered`);
       }
 
-      this.commands[c.getName()] = c;
+      this.commands[command.getName()] = command;
     });
   }
 

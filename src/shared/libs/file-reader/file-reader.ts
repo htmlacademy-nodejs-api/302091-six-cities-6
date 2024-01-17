@@ -4,10 +4,10 @@ import {
   RentalOffer,
   City,
   HousingType,
-  Conveniences,
+  Convenience,
 } from '../../types/index.js';
 import { FileReader } from './types.js';
-import { getAuthor, getCoordinates, getTypedCollection } from './helpers.js';
+import { getAuthor, getLocation, getTypedCollection } from './helpers.js';
 
 export class TSVFileReader implements FileReader {
   constructor(filename: string) {
@@ -62,9 +62,9 @@ export class TSVFileReader implements FileReader {
         roomsNumber: Number(roomsNumber),
         guestsNumber: Number(guestsNumber),
         cost: Number(cost),
-        conveniences: getTypedCollection<Conveniences>(conveniences),
+        conveniences: getTypedCollection<Convenience>(conveniences),
         author: getAuthor(author),
-        coordinates: getCoordinates(coordinates),
+        coordinates: getLocation(coordinates),
         commentsNumber: Number(commentsNumber),
       }));
   }
