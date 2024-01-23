@@ -1,0 +1,59 @@
+{
+    "api": {
+        "names": [
+            "Some Apartment",
+            "Big house",
+            "Very cheep flat" 
+        ],
+        "descriptions": [
+            "Bla bla bla bla bla bla bla bla bla bla",
+            "Olololololololololololo",
+            "Foo foo foo foo foo foo foo foo",
+            "Bar bar bar bar bar bra"
+        ],
+        "cities": ["Dusseldorf", "Amsterdam", "Brussels", "Hamburg", "Cologne"],
+        "previewImages": [
+            "https://cdn-p.cian.site/images/10/223/171/dom-seredinskoe-1713220197-1.jpg",
+            "https://cdn-p.cian.site/images/20/223/171/dom-seredinskoe-1713220208-1.jpg"
+        ],
+        "photos": [
+            "https://cdn-p.cian.site/images/10/223/171/dom-seredinskoe-1713220197-1.jpg",
+            "https://cdn-p.cian.site/images/10/223/171/dom-seredinskoe-1713220197-1.jpg"
+        ],
+        "housingTypes": ["apartment", "house", "room", "hotel"],
+        "conveniences": [
+            "Breakfast",
+            "Air conditioning",
+            "Laptop friendly workspace",
+            "Baby seat",
+            "Washer",
+            "Towels",
+            "Fridge"
+        ],
+        "authorNames": ["Bob", "Tom", "Vladimir Kolesow", "Sveta"],
+        "emails": [
+            "lololo@mail.ru",
+            "foooooo@mail.ru",
+            "blabla@mail.ru",
+            "barrrrrr@mail.ru"
+        ],
+        "avatars": [
+            "https://cdn-p.cian.site/images/10/223/171/dom-seredinskoe-1713220197-1.jpg",
+            "https://cdn-p.cian.site/images/10/223/171/dom-seredinskoe-1713220197-1.jpg"
+        ],
+        "passwords": [
+            "1111111",
+            "2222222",
+            "33333333",
+            "444444",
+            "55555555"
+        ],
+        "locations": [
+            { "latitude": "51.47354", "longitude": "5.69798" },
+            { "latitude": "30.148561", "longitude": "5.756974" },
+            { "latitude": "65.15461", "longitude": "5.353499" },
+            { "latitude": "67.278492", "longitude": "4.736314" },
+            { "latitude": "47.37457", "longitude": "3.893976" }
+        ]
+    }
+}
