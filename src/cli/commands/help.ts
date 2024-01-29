@@ -12,9 +12,10 @@ export class HelpCommand implements Command {
             ${chalk.blue('Пример:')}
             \t${chalk.green('cli.js --<command> [--arguments]')}
             ${chalk.blue('Команды:')}
-            \t${chalk.green('--version:                   # выводит номер версии')}
-            \t${chalk.green('--help:                      # печатает этот текст')}
-            \t${chalk.green('--import <path>:             # импортирует данные из TSV')}
+            \t${chalk.green('--version:                     # выводит номер версии')}
+            \t${chalk.green('--help:                        # печатает этот текст')}
+            \t${chalk.green('--import <path>:               # импортирует данные из TSV')}
+            \t${chalk.green('--generate <n> <path> <url>:   # генерирует произвольное количество тестовых данных')}
         `);
   }
 }
