@@ -13,6 +13,7 @@
     "start": "npm run build && node ./dist/main.rest.js",
     "start:dev": "npm run ts ./src/main.rest.ts | pino-pretty --colorize --translateTime SYS:standard",
     "start:cli": "npm run build && node ./dist/main.cli.js",
+    "docker:run": "docker compose --file ./docker-compose.dev.yml --env-file ./.env --project-name \"buy-and-sell-dev\" up ",
     "build": "npm run clean && npm run compile",
     "lint": "eslint --fix src/ --ext .ts",
     "compile": "tsc -p tsconfig.json",
@@ -20,6 +21,7 @@
     "ts": "ts-node"
   },
   "devDependencies": {
+    "@typegoose/typegoose": "^12.1.0",
     "@types/convict": "^6.1.6",
     "@types/convict-format-with-validator": "^6.0.5",
     "@types/node": "18.17.17",
@@ -45,7 +47,8 @@
     "convict": "^6.2.4",
     "convict-format-with-validator": "^6.2.0",
     "dayjs": "1.11.10",
-    "inversify": "^6.0.2",
+    "inversify": "6.0.2",
+    "mongoose": "8.1.0",
     "pino": "8.15.1",
     "reflect-metadata": "^0.2.1",
     "tslib": "2.6.2"

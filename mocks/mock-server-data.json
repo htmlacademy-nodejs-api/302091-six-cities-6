@@ -2,7 +2,7 @@
     "api": {
         "names": [
             "Some Apartment",
-            "Big house",
+            "Big house 666",
             "Very cheep flat" 
         ],
         "descriptions": [
@@ -30,7 +30,7 @@
             "Towels",
             "Fridge"
         ],
-        "authorNames": ["Bob", "Tom", "Vladimir Kolesow", "Sveta"],
+        "userNames": ["Bob", "Tom", "Vladimir Kolesow", "Sveta"],
         "emails": [
             "lololo@mail.ru",
             "foooooo@mail.ru",

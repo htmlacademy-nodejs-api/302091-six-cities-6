@@ -1,4 +1,4 @@
-import { getAuthor, getLocation, getTypedCollection } from '../libs/file-reader/helpers.js';
+import { getUser, getLocation, getTypedCollection } from '../libs/file-reader/helpers.js';
 import { City, Convenience, HousingType, RentalOffer } from '../types/index.js';
 
 export function createRentalOffer(str = ''): RentalOffer[] {
@@ -21,7 +21,7 @@ export function createRentalOffer(str = ''): RentalOffer[] {
       guestsNumber,
       cost,
       conveniences,
-      author,
+      user,
       commentsNumber,
       coordinates,
     ]) => ({
@@ -39,7 +39,7 @@ export function createRentalOffer(str = ''): RentalOffer[] {
       guestsNumber: Number(guestsNumber),
       cost: Number(cost),
       conveniences: getTypedCollection<Convenience>(conveniences),
-      author: getAuthor(author),
+      user: getUser(user),
       commentsNumber: Number(commentsNumber),
       coordinates: getLocation(coordinates),
     }));
