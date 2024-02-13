@@ -14,10 +14,10 @@ export class GenerateCommand implements Command {
 
   private async load(url: string) {
     try {
-      const { data } = await axios(url);
+      const { data } = await axios.get(url);
 
       this.initialData = data;
-    } catch {
+    } catch(e) {
       throw new Error(`Can't load data from ${url}`);
     }
   }

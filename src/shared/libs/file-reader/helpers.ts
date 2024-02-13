@@ -1,6 +1,6 @@
-import { Author, Location, UserType } from '../../types/index.js';
+import { User, Location, UserType } from '../../types/index.js';
 
-export function getAuthor(str = ''): Author {
+export function getUser(str = ''): User {
   const [name, email, avatar, pass, type] = str.split(';').filter(Boolean);
 
   return ({name, email, avatar, pass, type: type as UserType});

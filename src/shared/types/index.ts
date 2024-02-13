@@ -16,7 +16,7 @@ export enum HousingType {
     Apartment = 'apartment',
     House = 'house',
     Room = 'room',
-    hotel = 'Hotel',
+    hotel = 'hotel',
 }
 
 export enum Convenience {
@@ -29,7 +29,7 @@ export enum Convenience {
     Fridge = 'Fridge',
 }
 
-export type Author = {
+export type User = {
     name: string;
     email: string;
     avatar?: string;
@@ -54,7 +54,7 @@ export type RentalOffer = {
     guestsNumber: number;
     cost: number;
     conveniences: Convenience[];
-    author: Author;
+    user: User;
     coordinates: Location;
     commentsNumber: number;
 };
@@ -63,5 +63,5 @@ export type Comment = {
     text: string;
     date: Date;
     rating: number;
-    author: Author;
+    user: User;
 };

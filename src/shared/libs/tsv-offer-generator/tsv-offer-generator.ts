@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { MockServerData } from '../../interfacas/index.js';
-import { Author, UserType } from '../../types/index.js';
+import { User, UserType } from '../../types/index.js';
 import { OfferGenerator } from './type.js';
 
 const FIRST_WEEK_DAY = 1;
@@ -22,7 +22,7 @@ function getRandomBoolean(): boolean {
 }
 
 type UsersKey = Record<
-    keyof Omit<Author, 'type'>, keyof Omit<MockServerData, 'locations'>
+    keyof Omit<User, 'type'>, keyof Omit<MockServerData, 'locations'>
 >;
 
 export default class TSVOfferGenerator implements OfferGenerator {
@@ -32,30 +32,30 @@ export default class TSVOfferGenerator implements OfferGenerator {
     this.mockData = mockData;
   }
 
-  private generateAuthor(): Author {
+  private generateUser(): User {
     const usersKey: UsersKey = {
-      name: 'authorNames',
+      name: 'userNames',
       email: 'emails',
       pass: 'passwords',
       avatar: 'avatars',
     } as const;
 
-    const halfAuthorFields = (
+    const halfUserFields = (
       Object.entries<UsersKey[keyof UsersKey]>(usersKey)
         .reduce((acc, [key, value]) => {
           acc[key as keyof UsersKey] = getRandomItem(this.mockData[value]);
 
           return acc;
-        }, {} as Omit<Author, 'type'>)
+        }, {} as Omit<User, 'type'>)
     );
 
     const type = getRandomItem(Object.keys(UserType) as UserType[]);
 
-    return { ...halfAuthorFields, type };
+    return { ...halfUserFields, type };
   }
 
   generate(): string {
-    const author = this.generateAuthor();
+    const user = this.generateUser();
 
     const name = getRandomItem(this.mockData.names);
     const description = getRandomItem(this.mockData.descriptions);
@@ -67,9 +67,9 @@ export default class TSVOfferGenerator implements OfferGenerator {
 
     const isFavorite = getRandomBoolean();
     const isPremium = getRandomBoolean();
-    const price = generateRandomValue(MIN_VALUE, MAX_VALUE);
-    const roomsNumber = generateRandomValue(MIN_VALUE, MAX_VALUE);
-    const rating = generateRandomValue(MIN_VALUE, MAX_VALUE);
+    const price = generateRandomValue(100, 100000);
+    const roomsNumber = generateRandomValue(MIN_VALUE, 8);
+    const rating = generateRandomValue(MIN_VALUE, 5);
     const guestsNumber = generateRandomValue(MIN_VALUE, MAX_VALUE);
     const postDate = dayjs()
       .subtract(generateRandomValue(FIRST_WEEK_DAY, LAST_WEEK_DAY), 'day')
@@ -83,7 +83,7 @@ export default class TSVOfferGenerator implements OfferGenerator {
       city, previewImage, photos,
       isFavorite, isPremium, rating,
       housingType, roomsNumber, guestsNumber,
-      price, conveniences, Object.values(author).join(';'), commentsCount,
+      price, conveniences, Object.values(user).join(';'), commentsCount,
       Object.values(location).join(';')
     ].join('\t');
   }

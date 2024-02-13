@@ -8,7 +8,7 @@ export interface MockServerData {
   photos: string[];
   housingTypes: string[];
   conveniences: string[];
-  authorNames: string[];
+  userNames: string[];
   emails: string[];
   avatars: string[];
   passwords: string[];
