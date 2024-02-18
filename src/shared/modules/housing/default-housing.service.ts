@@ -24,6 +24,40 @@ export class DefaultHousingService implements HousingService {
     return result;
   }
 
+  public async find(): Promise<DocumentType<HousingEntity>[]> {
+    const LIMIT = 60;
+    const result = await this.offerModel.aggregate([
+      {
+        $lookup: {
+          from: 'comments',
+          let: { offerId: '$_id' },
+          pipeline: [
+            { $match: { $expr: { $eq: ['$offerId', '$$offerId'] } } },
+            { $group: { _id: null, rating: { $avg: '$rating' }, commentsNumber: { $sum: 1 } } },
+          ],
+          as: 'comments'
+        }
+      },
+      {
+        $addFields: {
+          id: { $toString: '$_id'},
+          commentsNumber: { $arrayElemAt: ['$comments.commentsNumber', 0] },
+          rating: { $arrayElemAt: ['$comments.rating', 0] },
+        }
+      },
+      {
+        $unset: 'comments'
+      },
+      {
+        $limit: LIMIT
+      },
+    ])
+    .exec();
+
+    return result;
+  }
+
+
   public async findById(
     offerId: string
   ): Promise<DocumentType<HousingEntity> | null> {

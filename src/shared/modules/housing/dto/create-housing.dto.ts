@@ -15,8 +15,6 @@ export class CreateHousingDto {
   public previewImage: string;
   public photos: string[];
   public isPremium: boolean;
-  public isFavorite: boolean;
-  public rating: number;
   public housingType: HousingType;
   public roomsNumber: number;
   public guestsNumber: number;
@@ -24,5 +22,4 @@ export class CreateHousingDto {
   public conveniences: Convenience[];
   public user: User;
   public coordinates: Location;
-  public commentsNumber: number;
 }

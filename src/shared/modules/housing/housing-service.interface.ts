@@ -6,4 +6,5 @@ import { CreateHousingDto } from './dto/index.js';
 export interface HousingService {
   create(dto: CreateHousingDto): Promise<DocumentType<HousingEntity>>;
   findById(id: string): Promise<DocumentType<HousingEntity> | null>;
+  find(): Promise<DocumentType<HousingEntity>[] | null>;
 }
