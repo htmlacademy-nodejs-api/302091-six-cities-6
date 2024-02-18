@@ -11,7 +11,7 @@
   "scripts": {
     "server:mock": "json-server ./mocks/mock-server-data.json --port 3123",
     "start": "npm run build && node ./dist/main.rest.js",
-    "start:dev": "npm run ts ./src/main.rest.ts | pino-pretty --colorize --translateTime SYS:standard",
+    "start:dev": "nodemon",
     "start:cli": "npm run build && node ./dist/main.cli.js",
     "docker:run": "docker compose --file ./docker-compose.dev.yml --env-file ./.env --project-name \"buy-and-sell-dev\" up ",
     "build": "npm run clean && npm run compile",
@@ -30,6 +30,7 @@
     "dotenv": "^16.4.1",
     "eslint": "8.49.0",
     "eslint-config-htmlacademy": "9.1.1",
+    "nodemon": "3.0.1",
     "json-server": "0.17.3",
     "pino-pretty": "10.2.0",
     "rimraf": "5.0.1",
