@@ -1,1 +1,2 @@
-export { default } from './file-writer.js';
+export * from './file-writer.interface.js';
+export * from './tsv-file-writer.js';

@@ -1,7 +1,7 @@
-# Личный проект «Шесть городов»
+# Личный проект «{{projectTitle}}»
 
-* Студент: [Igor Belyaev](https://up.htmlacademy.ru/nodejs-api/6/user/302091).
-* Наставник: [Rail Sakhaviev](https://htmlacademy.ru/profile/id1331891).
+* Студент: [{{userName}}]({{userProfile}}).
+* Наставник: `Неизвестно`.
 
 ---
 
