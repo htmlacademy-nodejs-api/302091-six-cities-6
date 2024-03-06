@@ -1,18 +1,17 @@
 import { Logger as PinoInstance, pino, transport } from 'pino';
-import { resolve } from 'node:path';
 import { injectable } from 'inversify';
-
+import { resolve } from 'node:path';
 import { Logger } from './logger.interface.js';
-import { getCurrentModuleDirectoryPath } from '../../helpers/file-system.js';
+import { getCurrentModuleDirectoryPath } from '../../helpers/index.js';
 
 @injectable()
 export class PinoLogger implements Logger {
   private readonly logger: PinoInstance;
 
   constructor() {
-    const modulePath = getCurrentModuleDirectoryPath();
+    const modulePath = getCurrentModuleDirectoryPath(import.meta.url);
     const logFilePath = 'logs/rest.log';
-    const destination = resolve(modulePath, '../../../', logFilePath);
+    const destination = resolve(modulePath, '../../../../', logFilePath);
 
     const multiTransport = transport({
       targets: [
@@ -33,19 +32,19 @@ export class PinoLogger implements Logger {
     this.logger.info('Logger created…');
   }
 
-  public debug(message: string, ...args: unknown[]) {
+  public debug(message: string, ...args: unknown[]): void {
     this.logger.debug(message, ...args);
   }
 
-  public error(message: string, error: Error, ...args: unknown[]) {
+  public error(message: string, error: Error, ...args: unknown[]): void {
     this.logger.error(error, message, ...args);
   }
 
-  public info(message: string, ...args: unknown[]) {
+  public info(message: string, ...args: unknown[]): void {
     this.logger.info(message, ...args);
   }
 
-  public warn(message: string, ...args: unknown[]) {
+  public warn(message: string, ...args: unknown[]): void {
     this.logger.warn(message, ...args);
   }
 }
