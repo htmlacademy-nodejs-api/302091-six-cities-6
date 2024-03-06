@@ -1,8 +1,3 @@
-// http://design-pattern.ru/patterns/registry.html
-// https://www.calabonga.net/blog/post/dependency-injection-principle-pattern-container#:~:text=Паттерн%20внедрение%20зависимостей%20(Dependency%20Injection,(lifetime)%2C%20то%20есть%20временем
-
-// https://refactoring.guru/ru/design-patterns/builder
-
 import 'reflect-metadata';
 import { Container } from 'inversify';
 import { RestApplication } from './rest/index.js';
