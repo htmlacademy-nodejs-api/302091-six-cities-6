@@ -152,7 +152,7 @@ export class OfferController extends BaseController {
     if (offer?.userId?.id !== tokenPayload.id) {
       throw new HttpError(
         StatusCodes.FORBIDDEN,
-        `Access Denied`,
+        'Access Denied',
         'OfferController'
       );
     }
@@ -178,7 +178,7 @@ export class OfferController extends BaseController {
     if (offer?.userId?.id !== tokenPayload.id) {
       throw new HttpError(
         StatusCodes.FORBIDDEN,
-        `Access Denied`,
+        'Access Denied',
         'OfferController'
       );
     }
@@ -215,7 +215,7 @@ export class OfferController extends BaseController {
     const { offerId } = params;
     const user = await this.userService.findById(tokenPayload.id);
     if (!user?.favorites.includes(offerId)) {
-     await this.userService.addOfferToFavorites(user?.id, offerId);
+      await this.userService.addOfferToFavorites(user?.id, offerId);
     }
     const offer = await this.offerService.findById(offerId);
     this.ok(res, fillDTO(OfferDetailsRdo, offer));

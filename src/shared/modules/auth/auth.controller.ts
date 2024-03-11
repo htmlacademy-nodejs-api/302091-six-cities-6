@@ -35,7 +35,7 @@ export class AuthController extends BaseController {
       ]
     });
     this.addRoute({
-      path: "/logout",
+      path: '/logout',
       method: HttpMethod.Post,
       handler: this.logout,
       middlewares:[
@@ -72,8 +72,8 @@ export class AuthController extends BaseController {
     }
     throw new HttpError(
       StatusCodes.NOT_IMPLEMENTED,
-      "Not implemented",
-      "UserController",
+      'Not implemented',
+      'UserController',
     );
   }
 

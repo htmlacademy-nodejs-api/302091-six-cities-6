@@ -72,8 +72,8 @@ export class DefaultOfferService implements OfferService {
   }
 
   public async deleteById(offerId: string): Promise<unknown> {
-     return this.offerModel
-       .deleteOne({_id: offerId});
+    return this.offerModel
+      .deleteOne({_id: offerId});
   }
 
   public async exists(documentId: string): Promise<boolean> {

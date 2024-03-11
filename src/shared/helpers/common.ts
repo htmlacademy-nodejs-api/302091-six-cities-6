@@ -28,7 +28,7 @@ export function fillFavorites(offers: OfferEntity[] | null, user: UserEntity | n
   if (!user || !offers) {
     return offers;
   }
-  return offers.map(offer => {
+  return offers.map((offer) => {
     offer.isFavorite = user.favorites.includes(offer.id);
     return offer;
   });

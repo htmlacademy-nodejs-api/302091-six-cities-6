@@ -44,7 +44,7 @@ export class DefaultCommentService implements CommentService {
       {
         $group: {
           _id: null,
-          rating: { $avg: "$rating" },
+          rating: { $avg: '$rating' },
           commentsCount: { $sum: 1 },
         },
       },
