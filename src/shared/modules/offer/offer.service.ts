@@ -38,11 +38,11 @@ export class DefaultOfferService implements OfferService {
       .exec();
   }
 
-  public async find(): Promise<DocumentType<OfferEntity>[]> {
+  public async find(limit?: number): Promise<DocumentType<OfferEntity>[]> {
     return this.offerModel
       .find()
       .populate(['userId', 'cityId'])
-      .limit(OFFERS_LIMIT)
+      .limit(limit ?? OFFERS_LIMIT)
       .sort({ createdAt: SortType.Descending })
       .exec();
   }
@@ -72,8 +72,8 @@ export class DefaultOfferService implements OfferService {
   }
 
   public async deleteById(offerId: string): Promise<unknown> {
-     return this.offerModel
-       .deleteOne({_id: offerId});
+    return this.offerModel
+      .deleteOne({_id: offerId});
   }
 
   public async exists(documentId: string): Promise<boolean> {

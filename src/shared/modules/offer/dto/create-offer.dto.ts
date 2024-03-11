@@ -17,11 +17,11 @@ import { CreateOfferValidationMessage } from './create-offer.messages.js';
 import { Type } from 'class-transformer';
 
 class LocationDto {
-  @IsNumber( { allowNaN: false, allowInfinity: false },{ message: CreateOfferValidationMessage.location.latitude.invalidFormat })
-  latitude: number;
+  @IsNumber({ allowNaN: false, allowInfinity: false },{ message: CreateOfferValidationMessage.location.latitude.invalidFormat })
+    latitude: number;
 
   @IsNumber({ allowNaN: false, allowInfinity: false }, { message: CreateOfferValidationMessage.location.longitude.invalidFormat })
-  longitude: number;
+    longitude: number;
 }
 
 export class CreateOfferDto {

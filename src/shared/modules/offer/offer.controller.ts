@@ -21,6 +21,7 @@ import { StatusCodes } from 'http-status-codes';
 import { CommentService, CommentRdo } from '../comment/index.js';
 import { UserService } from '../user/index.js';
 import { ParamOfferId } from './types/param-offerid.type.js';
+import { OFFERS_LIMIT } from './offer.constant.js';
 
 @injectable()
 export class OfferController extends BaseController {
@@ -120,8 +121,9 @@ export class OfferController extends BaseController {
     });
   }
 
-  public async index({ tokenPayload }: Request, res: Response): Promise<void> {
-    const offers = await this.offerService.find();
+  public async index({ tokenPayload, query }: Request, res: Response): Promise<void> {
+    const limit = query.limit ? Number(query.limit) : OFFERS_LIMIT;
+    const offers = await this.offerService.find(limit);
     const user = tokenPayload ? await this.userService.findById(tokenPayload.id) : null;
     this.ok(res, fillDTO(OfferRdo, fillFavorites(offers, user)));
   }
@@ -147,10 +149,10 @@ export class OfferController extends BaseController {
   ): Promise<void> {
     const { offerId } = params;
     const offer = await this.offerService.findById(offerId);
-    if (offer?.userId.id !== tokenPayload.id) {
+    if (offer?.userId?.id !== tokenPayload.id) {
       throw new HttpError(
         StatusCodes.FORBIDDEN,
-        `Access Denied`,
+        'Access Denied',
         'OfferController'
       );
     }
@@ -173,10 +175,10 @@ export class OfferController extends BaseController {
   ): Promise<void> {
     const { offerId } = params;
     const offer = await this.offerService.findById(offerId);
-    if (offer?.userId.id !== tokenPayload.id) {
+    if (offer?.userId?.id !== tokenPayload.id) {
       throw new HttpError(
         StatusCodes.FORBIDDEN,
-        `Access Denied`,
+        'Access Denied',
         'OfferController'
       );
     }
@@ -213,7 +215,7 @@ export class OfferController extends BaseController {
     const { offerId } = params;
     const user = await this.userService.findById(tokenPayload.id);
     if (!user?.favorites.includes(offerId)) {
-      await this.userService.addOfferToFavorites(tokenPayload.id, offerId);
+      await this.userService.addOfferToFavorites(user?.id, offerId);
     }
     const offer = await this.offerService.findById(offerId);
     this.ok(res, fillDTO(OfferDetailsRdo, offer));
@@ -222,9 +224,7 @@ export class OfferController extends BaseController {
   public async deleteOfferFromFavorite({ tokenPayload, params }: Request<ParamOfferId>, res: Response) {
     const { offerId } = params;
     const user = await this.userService.findById(tokenPayload.id);
-    if (user?.favorites.includes(offerId)) {
-      await this.userService.deleteOfferFromFavorites(tokenPayload.id, offerId);
-    }
+    await this.userService.deleteOfferFromFavorites(user?.id, offerId);
     this.noContent(res, null);
   }
 }

@@ -17,11 +17,11 @@ import { UpdateOfferValidationMessage } from './update-offer.messages.js';
 import { Type } from 'class-transformer';
 
 class LocationDto {
-  @IsNumber( { allowNaN: false, allowInfinity: false },{ message: UpdateOfferValidationMessage.location.latitude.invalidFormat })
-  latitude: number;
+  @IsNumber({ allowNaN: false, allowInfinity: false },{ message: UpdateOfferValidationMessage.location.latitude.invalidFormat })
+    latitude: number;
 
   @IsNumber({ allowNaN: false, allowInfinity: false }, { message: UpdateOfferValidationMessage.location.longitude.invalidFormat })
-  longitude: number;
+    longitude: number;
 }
 
 export class UpdateOfferDto {

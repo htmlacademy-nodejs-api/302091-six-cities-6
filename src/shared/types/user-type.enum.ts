@@ -1,4 +1,3 @@
-
 export const UserType = {
   Pro: 'pro',
   Regular: 'regular'

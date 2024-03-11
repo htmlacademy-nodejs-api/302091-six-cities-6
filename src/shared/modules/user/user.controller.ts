@@ -55,7 +55,7 @@ export class UserController extends BaseController {
     if (tokenPayload?.id) {
       throw new HttpError(
         StatusCodes.FORBIDDEN,
-        `Access Denied`,
+        'Access Denied',
         'User Controller'
       );
     }

@@ -37,7 +37,7 @@ export function createOffer(offerData: string): PartialOffer{
     },
     previewImage,
     images: images.split(';'),
-    isPremium: isPremium === "true",
+    isPremium: isPremium === 'true',
     type: type as OfferType,
     bedrooms: Number(bedrooms),
     maxAdults: Number(maxAdults),
