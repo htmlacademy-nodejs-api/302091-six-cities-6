@@ -9,16 +9,18 @@
   ],
   "main": "main.js",
   "scripts": {
-    "server:mock": "json-server ./mocks/mock-server-data.json --port 3123",
-    "start": "npm run build && node ./dist/main.rest.js",
+    "start": "npm run build && node ./dist/main.js",
     "start:dev": "nodemon",
-    "start:cli": "npm run build && node ./dist/main.cli.js",
-    "docker:run": "docker compose --file ./docker-compose.dev.yml --env-file ./.env --project-name \"buy-and-sell-dev\" up ",
     "build": "npm run clean && npm run compile",
-    "lint": "eslint --fix src/ --ext .ts",
+    "lint": "eslint src/ --ext .ts",
     "compile": "tsc -p tsconfig.json",
     "clean": "rimraf dist",
-    "ts": "ts-node"
+    "ts": "ts-node",
+    "mongodb:start": "docker compose --file \"./docker-compose.yml\" --env-file \"./.env\" --project-name \"six-cities\" up -d",
+    "mongodb:stop": "docker compose --file \"./docker-compose.yml\" down",
+    "mock:server": "json-server src/mocks/mock-server-data.json --port 3123",
+    "cli:offers:generate": "ts-node src/main.cli.ts --generate 10 src/mocks/test.tsv http://localhost:3123/api",
+    "cli:offers:import": "ts-node src/main.cli.ts --import src/mocks/test.tsv admin test localhost six-cities secret"
   },
   "devDependencies": {
     "@typegoose/typegoose": "11.5.0",
